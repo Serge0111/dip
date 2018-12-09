@@ -1,0 +1,31 @@
+<section id="section">
+  <div id="partition">
+    <div class="allpart">
+      <div class="creatsection">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #group="matButtonToggleGroup">
+          <mat-button-toggle value="all">Всі типи транспорту</mat-button-toggle>
+          <mat-button-toggle value="bus">Тільки автобуси</mat-button-toggle>
+          <mat-button-toggle value="train">Тільки потяги</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="form" [formGroup]="form">
+        <div class="start">
+          <label for="start-point" class="label">Пункт відправлення*</label>
+          <input type="text" class="point" id="start-point" formControlName="start">
+        </div>
+        <div class="end">
+          <label for="end-point" class="label">Пункт призначення*</label>
+          <input type="text" class="point" id="end-point" formControlName="end">
+        </div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" class="date" formControlName="date" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="search"> 
+        <button mat-raised-button color="primary">Знайти по заданному маршруту</button>
+      </div>
+    </div>
+  </div>
+</section>
