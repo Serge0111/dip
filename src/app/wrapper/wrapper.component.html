@@ -9,7 +9,7 @@
         </mat-button-toggle-group>
       </div>
       <div class="form" [formGroup]="form">
-        <div class="start">
+        <div class="start" [ngClass]="{'touched': true}">
           <label for="start-point" class="label">Пункт відправлення*</label>
           <input type="text" class="point" id="start-point" formControlName="start">
         </div>
@@ -23,7 +23,7 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
-      <div class="search"> 
+      <div class="search">
         <button mat-raised-button color="primary">Знайти по заданному маршруту</button>
       </div>
     </div>
