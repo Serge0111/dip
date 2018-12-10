@@ -13,13 +13,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { LowAnimationDirective } from './low-animation.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     WrapperComponent,
-    FooterComponent
+    FooterComponent,
+    LowAnimationDirective
   ],
   imports: [
     BrowserModule,

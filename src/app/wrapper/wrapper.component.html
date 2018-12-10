@@ -9,13 +9,13 @@
         </mat-button-toggle-group>
       </div>
       <div class="form" [formGroup]="form">
-        <div class="start" [ngClass]="{'touched': true}">
+        <div class="start" [ngClass]="{touched: a.active}">
           <label for="start-point" class="label">Пункт відправлення*</label>
-          <input type="text" class="point" id="start-point" formControlName="start">
+          <input type="text" class="point" appLowAnimation #a="low" id="start-point" formControlName="start">
         </div>
-        <div class="end">
+        <div class="end" [ngClass]="{touched: b.active}">
           <label for="end-point" class="label">Пункт призначення*</label>
-          <input type="text" class="point" id="end-point" formControlName="end">
+          <input type="text" class="point" id="end-point" appLowAnimation #b="low" formControlName="end">
         </div>
         <mat-form-field>
           <input matInput [matDatepicker]="picker" class="date" formControlName="date" placeholder="Choose a date">
