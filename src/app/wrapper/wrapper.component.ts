@@ -50,14 +50,14 @@ export class WrapperComponent implements OnInit {
     };
   }
 
-  public sendData(val) {
+  public sendFields(val) {
     if (!this.transport) {
       console.log('Choose transport type');
     } else {
       console.log(this.transport, this.status);
     }
   }
-  public handle(val) {
+  public handleVehicle(val) {
     this.transport = val;
     console.log(this.transport);
   }

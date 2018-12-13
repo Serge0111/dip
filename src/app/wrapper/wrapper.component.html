@@ -2,7 +2,7 @@
   <div id="partition">
     <div class="allpart">
       <div class="creatsection">
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #group="matButtonToggleGroup" (click)=handle(group.value)>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #group="matButtonToggleGroup" (click)=handleVehicle(group.value)>
           <mat-button-toggle value="all">Всі типи транспорту</mat-button-toggle>
           <mat-button-toggle value="bus">Тільки автобуси</mat-button-toggle>
           <mat-button-toggle value="train">Тільки потяги</mat-button-toggle>
@@ -24,7 +24,7 @@
         </mat-form-field>
       </div>
       <div class="search">
-        <button mat-raised-button color="primary" (click)=sendData()>Знайти по заданному маршруту</button>
+        <button mat-raised-button color="primary" (click)=sendFields()>Знайти по заданному маршруту</button>
       </div>
     </div>
   </div>
