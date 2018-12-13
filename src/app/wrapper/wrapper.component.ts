@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { ITrip } from '../interfaces/types';
 
 @Component({
   selector: 'app-wrapper',
@@ -23,7 +24,6 @@ export class WrapperComponent implements OnInit {
 
   public startvld = this.form.controls.start;
   public endvld = this.form.controls.end;
-  public startDate: Date = new Date(1990, 0, 1);
   public transport: string;
   private start: string;
   private end: string;
@@ -50,11 +50,27 @@ export class WrapperComponent implements OnInit {
     };
   }
 
-  public sendFields(val) {
-    if (!this.transport) {
-      console.log('Choose transport type');
-    } else {
-      console.log(this.transport, this.status);
+  public sendFields() {
+    try {
+      if (!this.transport) {
+        throw new Error('Please choose transport');
+      }
+      if (this.status !== 'VALID') {
+        throw new Error('Invalid datas in forms');
+      }
+
+      const trip: ITrip = {
+        start: this.start,
+        end: this.end,
+        transport: this.transport,
+        date: (this.date as string)
+      };
+
+      console.log('TRIP', trip);
+
+
+    } catch (e) {
+      console.log(`${e}`);
     }
   }
   public handleVehicle(val) {
