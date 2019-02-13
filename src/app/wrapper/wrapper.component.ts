@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { ITrip } from '../interfaces/types';
+import { TripService } from '../services/http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-wrapper',
@@ -24,16 +26,30 @@ export class WrapperComponent implements OnInit {
 
   public startvld = this.form.controls.start;
   public endvld = this.form.controls.end;
+  public newVal: string;
   public transport: string;
   private start: string;
   private end: string;
   private date: string;
   private status: string;
+  private putValue = '';
   constructor(
-    private _fb: FormBuilder
-  ) { }
-
+    private _fb: FormBuilder,
+    private _http: TripService,
+  ) {
+    console.log('boria');
+  }
+  set new(value: any) {
+    console.log(value);
+    this.newVal = value;
+  }
+  @Input('new')
+  get new() {
+    console.log('hi');
+    return this.newVal;
+  }
   ngOnInit() {
+    console.log('vasia');
     this.form.valueChanges.subscribe((data) => {
       const { start, end, date } = data;
       this.start = start;
@@ -65,8 +81,9 @@ export class WrapperComponent implements OnInit {
         transport: this.transport,
         date: (this.date as string)
       };
-
       console.log('TRIP', trip);
+      const result: Observable<any> = this._http.editPersonalInfo(trip);
+      result.subscribe((data) => console.log(`Data from back-end:`, data));
 
 
     } catch (e) {
