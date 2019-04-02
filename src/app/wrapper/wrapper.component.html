@@ -1,0 +1,44 @@
+<section id="section">
+  <div>{{new}}</div>
+  <div id="partition">
+    <div class="allpart">
+      <div class="creatsection">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #group="matButtonToggleGroup"
+          (click)=handleVehicle(group.value)>
+          <mat-button-toggle value="all">Всі типи транспорту</mat-button-toggle>
+          <mat-button-toggle value="bus">Тільки автобуси</mat-button-toggle>
+          <mat-button-toggle value="train">Тільки потяги</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="form" [formGroup]="form">
+        <div class="start" [ngClass]="{touched: a.active}">
+          <label for="start-point" class="label"
+            [ngClass]="{valid: startvld.invalid && (startvld.dirty || startvld.touched)}">Пункт відправлення*</label>
+          <input type="text" class="point" appLowAnimation #a="low" id="start-point" formControlName="start" required>
+        </div>
+        <div class="end" [ngClass]="{touched: b.active}">
+          <label for="end-point" class="label"
+            [ngClass]="{valid: endvld.invalid && (endvld.dirty || endvld.touched)}">Пункт призначення*</label>
+          <input type="text" class="point" id="end-point" appLowAnimation #b="low" formControlName="end">
+        </div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" class="date" formControlName="date" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="search">
+        <button mat-raised-button color="primary" (click)=sendFields()>Знайти по заданному маршруту</button>
+      </div>
+      <div *ngFor="let hero of heroes; let i=index; let odd=odd">
+        ({{i}}) {{hero.name}} Odd={{odd}}
+      </div>
+    </div>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="ui form">
+    <div class="field">
+      <input type="text" name="skuInput" [(ngModel)]="skuInput">
+      <span> {{skuInput}}</span>
+    </div>
+  </form>
+</section>

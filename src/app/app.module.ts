@@ -3,16 +3,44 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { WrapperComponent } from './wrapper/wrapper.component';
+import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { LowAnimationDirective } from './low-animation.directive';
+import { TripService } from './services/http.service';
+import { HttpClientModule } from '@angular/common/http';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    WrapperComponent,
+    FooterComponent,
+    LowAnimationDirective
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+  BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatButtonToggleModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [TripService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
