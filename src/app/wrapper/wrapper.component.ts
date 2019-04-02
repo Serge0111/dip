@@ -80,7 +80,7 @@ export class WrapperComponent implements OnInit {
   public sendFields() {
     try {
       if (!this.transport) {
-        throw new Error('Please choose transport');
+        throw new Error('Please choose motherfucking transport');
       }
       if (this.status !== 'VALID') {
         throw new Error('Invalid datas in forms');
