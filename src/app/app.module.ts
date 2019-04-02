@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LowAnimationDirective } from './low-animation.directive';
 import { TripService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [TripService],
   bootstrap: [AppComponent]

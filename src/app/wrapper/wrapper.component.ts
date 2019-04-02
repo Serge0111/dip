@@ -57,6 +57,7 @@ export class WrapperComponent implements OnInit {
   }
   ngOnInit() {
     this.form.valueChanges.subscribe((data) => {
+      console.log(data);
       const { start, end, date } = data;
       this.start = start;
       this.end = end;
