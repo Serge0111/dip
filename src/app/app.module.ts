@@ -16,7 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { LowAnimationDirective } from './low-animation.directive';
 import { TripService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
-import {NgxMaskModule} from 'ngx-mask'
+import {NgxMaskModule} from 'ngx-mask';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {NgxMaskModule} from 'ngx-mask'
     LowAnimationDirective
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -38,7 +39,8 @@ import {NgxMaskModule} from 'ngx-mask'
     MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    StoreModule.forRoot({})
   ],
   providers: [TripService],
   bootstrap: [AppComponent]
