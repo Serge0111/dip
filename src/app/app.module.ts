@@ -18,6 +18,10 @@ import { TripService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaskModule} from 'ngx-mask';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/reducers';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { StoreModule } from '@ngrx/store';
     MatButtonModule,
     HttpClientModule,
     NgxMaskModule.forRoot(),
-    StoreModule.forRoot({})
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
+    EffectsModule.forRoot([])
   ],
   providers: [TripService],
   bootstrap: [AppComponent]
