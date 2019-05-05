@@ -43,10 +43,10 @@ const {
   selectIds,
   selectEntities,
 } = adapter.getSelectors();
- 
+
 // select the array of user ids
 export const selectProductIds = selectIds;
- 
+
 // select the dictionary of user entities
 export const selectProductEntities = selectEntities;
 
